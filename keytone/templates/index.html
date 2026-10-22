@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KeyTone: what kind of developer do you type like?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main>
+  <h1>Your typing has a personality.</h1>
+  <p class="lead">Type a few sentences. Python reads your rhythm and tells you which kind of developer you type like.</p>
+
+  <canvas id="wave" width="900" height="120" aria-label="Live keystroke rhythm"></canvas>
+  <textarea id="box" rows="4" placeholder="Describe the worst bug you ever fixed..." autofocus></textarea>
+
+  <div class="bar">
+    <button id="go" disabled>Read my rhythm</button>
+    <span id="count">0 keys</span>
+    <button id="reset" class="ghost">Start over</button>
+  </div>
+  <p class="note">Only timings are sent to the server. The letters you type never leave your browser.</p>
+
+  <section id="result" hidden>
+    <h2 id="name"></h2>
+    <p id="about"></p>
+    <svg id="radar" viewBox="-130 -130 260 260" role="img" aria-label="Typing profile radar"></svg>
+    <p id="stats"></p>
+  </section>
+  <p id="error" role="alert"></p>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
